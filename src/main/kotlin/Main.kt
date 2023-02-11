@@ -1,5 +1,5 @@
 
-// FÖRE, EGEN LÖSNING
+// FÖRE, EGEN LÖSNING AoC Dag 2 År 2022
 fun getAoCList() = FileToList().getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Actual.txt")
 
 fun partOne(list: List<String>): Int {
@@ -36,7 +36,7 @@ fun partTwo(list: List<String>): Int {
     return score
 }
 
-// EFTER, Todd Ginsberg
+// EFTER AoC Dag 2 År 2022, Todd Ginsberg
 
 // den bästa jag hittade som jag tyckte var bra
 // han har gjort nästan exakt samma som mig men istället använt sumOf() för att räkna ut resultat
