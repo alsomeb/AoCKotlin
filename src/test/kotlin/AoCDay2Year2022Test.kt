@@ -1,13 +1,13 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-// FÖRE, EGEN LÖSNING
-class AoC2Test {
+// TDD på test input man får
+class AoCDay2Year2022Test {
 
 
     private val reader = FileToList()
     // Den fattar inte med kortare path, måste vara exakt ?
-    private val list = reader.getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoC2Test.txt")
+    private val list = reader.getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Test.txt")
 
 
     @Test

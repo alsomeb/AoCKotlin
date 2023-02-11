@@ -1,6 +1,6 @@
 
 // FÖRE, EGEN LÖSNING
-fun getAoCList() = FileToList().getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoC2Actual.txt")
+fun getAoCList() = FileToList().getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Actual.txt")
 
 fun partOne(list: List<String>): Int {
     var score = 0
