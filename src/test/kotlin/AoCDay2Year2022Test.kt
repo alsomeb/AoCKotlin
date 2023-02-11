@@ -7,7 +7,7 @@ class AoCDay2Year2022Test {
 
     private val reader = FileToList()
     // Den fattar inte med kortare path, måste vara exakt ?
-    private val list = reader.getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Test.txt")
+    private val list = reader.getListFromFileTrimmedWithoutBlankSpaces("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Test.txt")
 
 
     @Test
@@ -20,7 +20,7 @@ class AoCDay2Year2022Test {
 
     // Här provar vi lösa fram en algoritm som vi sedan kan använda på stora filen!
     @Test
-    fun testSolvingDay1WithSampleInputIsCorrect() {
+    fun testSolvingDay2WithSampleInputIsCorrect() {
 
         // Finns mapOf i Kotlin också men detta var enklare för mig att läsa med alla mappningar
         val mapOfResults = HashMap<String, Int>()

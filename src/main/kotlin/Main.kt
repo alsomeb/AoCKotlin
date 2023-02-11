@@ -1,8 +1,9 @@
 
+// FÖRSTA UPPGIFTEN
 // FÖRE, EGEN LÖSNING AoC Dag 2 År 2022
-fun getAoCList() = FileToList().getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Actual.txt")
+fun getAoCList() = FileToList().getListFromFileTrimmedWithoutBlankSpaces("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2022Actual.txt")
 
-fun partOne(list: List<String>): Int {
+fun partOne22(list: List<String>): Int {
     var score = 0
     val map = mapOf(
         "AY" to 8,
@@ -19,7 +20,7 @@ fun partOne(list: List<String>): Int {
     return score
 }
 
-fun partTwo(list: List<String>): Int {
+fun partTwo22(list: List<String>): Int {
     var score = 0
     val map = mapOf(
         "AY" to 4,
@@ -44,7 +45,7 @@ fun partTwo(list: List<String>): Int {
 
 // The sumOf method of List applies the provided selector function on each element and returns the sum of the values returned by the selector function for each element of the List.
 // https://www.educative.io/answers/how-to-use-the-sumof-method-of-list-in-kotlin
-fun partOneImproved(list: List<String>): Int {
+fun partOneImproved22(list: List<String>): Int {
     val score: Int // Vi kan ha val, för den assignas när vi summerar nedan och sen blir immutable
     val map = mapOf(
         "AY" to 8,
@@ -64,7 +65,7 @@ fun partOneImproved(list: List<String>): Int {
     return score
 }
 
-fun partTwoImproved(list: List<String>): Int {
+fun partTwoImproved22(list: List<String>): Int {
     val score: Int  // Vi kan ha val, för den assignas när vi summerar nedan och sen blir immutable
     val map = mapOf(
         "AY" to 4,
@@ -81,19 +82,26 @@ fun partTwoImproved(list: List<String>): Int {
     return score
 }
 
+// ANDRA UPPGIFTEN
+// FÖRE, EGEN LÖSNING AoC Dag 2 År 2021
+
 
 fun main() {
+    // 1
     // FÖRE AoC Dag 2 År 2022
     val input = getAoCList()
-    val result1 = partOne(input)
-    val result2 = partTwo(input)
+    val result1 = partOne22(input)
+    val result2 = partTwo22(input)
     println("Part One: $result1\nPart two: $result2")
 
     // EFTER AoC Dag 2 År 2022
-    val result1Improved = partOneImproved(input)
-    val result2Improved = partTwoImproved(input)
+    val result1Improved = partOneImproved22(input)
+    val result2Improved = partTwoImproved22(input)
     println("Part One Imp: $result1Improved\nPart two Imp: $result2Improved")
 
 
+    // 2
+    // FÖRE AoC Dag 2 År 2021
 
+    // EFTER AoC Dag 2 år 2021
 }
