@@ -83,13 +83,13 @@ fun partTwoImproved(list: List<String>): Int {
 
 
 fun main() {
-    // FÖRE
+    // FÖRE AoC Dag 2 År 2022
     val input = getAoCList()
     val result1 = partOne(input)
     val result2 = partTwo(input)
     println("Part One: $result1\nPart two: $result2")
 
-    // EFTER
+    // EFTER AoC Dag 2 År 2022
     val result1Improved = partOneImproved(input)
     val result2Improved = partTwoImproved(input)
     println("Part One Imp: $result1Improved\nPart two Imp: $result2Improved")
