@@ -1,6 +1,7 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+// FÖRE, EGEN LÖSNING
 class AoC2Test {
 
 

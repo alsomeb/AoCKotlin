@@ -1,3 +1,5 @@
+
+// FÖRE, EGEN LÖSNING
 fun getAoCList() = FileToList().getListFromFIle("C:\\Users\\46760\\Desktop\\AoCKotlin\\src\\main\\resources\\AoC2Actual.txt")
 
 fun partOne(list: List<String>): Int {
