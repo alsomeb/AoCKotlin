@@ -25,8 +25,27 @@ class AoCDay2Year2021Test {
 
     @Test
     fun testSolvingDay2WithSampleInputIsCorrect() {
-    // todo
+        var totalDepth = 0
+        var totalHorizontal= 0
 
+        fun addCourseToTotal(line: List<String>) {
+            val direction = line[0]
+            val amount: Int = line[1].toInt()
+            when(direction) {
+                "forward" -> totalHorizontal += amount
+                "down" -> totalDepth += amount
+                "up" -> totalDepth -= amount
+            }
+        }
+
+
+        for (line in list) addCourseToTotal(line.split(" "))
+
+
+        assertEquals(15, totalHorizontal)
+        assertEquals(10, totalDepth)
+        assertEquals(150, totalDepth * totalHorizontal)
     }
+
 
 }
