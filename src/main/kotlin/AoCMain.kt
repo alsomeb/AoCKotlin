@@ -82,9 +82,6 @@ fun partTwoImproved22(list: List<String>): Int {
     return score
 }
 
-// ANDRA UPPGIFTEN
-// FÖRE, EGEN LÖSNING AoC Dag 2 År 2021
-
 
 fun main() {
     // 1
@@ -98,10 +95,4 @@ fun main() {
     val result1Improved = partOneImproved22(input)
     val result2Improved = partTwoImproved22(input)
     println("Part One Imp: $result1Improved\nPart two Imp: $result2Improved")
-
-
-    // 2
-    // FÖRE AoC Dag 2 År 2021
-
-    // EFTER AoC Dag 2 år 2021
 }
