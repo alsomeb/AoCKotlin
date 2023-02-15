@@ -31,11 +31,6 @@ class AoCDay1Year2018Test {
         assertEquals(expected3, sum(listTest3))
     }
 
-    @Test
-    fun runProgramPartOne() {
-        val res = partOne()
-        println(res)
-    }
 
     @Test
     fun testAlgoWorksForPartTwo() {
@@ -96,12 +91,48 @@ class AoCDay1Year2018Test {
     @Test
     fun partOne() = println(sum(listActual))
 
-    @Test
-    fun partTwo() {
+
+    fun partTwo(): Int {
         val freqAsIntList = listActual.map { it.toInt() }
-        val dupe = findDupeFreq(freqAsIntList)
-        println(dupe)
+        return findDupeFreq(freqAsIntList)
     }
 
     // EFTER MHA Todd Ginsberg https://todd.ginsberg.com/post/advent-of-code/2018/day1/
+    // Hans part 1 var lika som min, då jag lärt mig av honom tidigare ang sum() och sumBy()
+
+    // Pga Del 2 måste man Loopa igenom listan flera gånger, så har han använt något som heter "Infinite Sequence"
+    // Han lägger till en Extension function på List möjliga functions
+
+    // All this does is check that our list isn’t empty (in this case it’s not, but I wanted to be thorough), and if not, just keep yielding the entire list.
+    // Kotlin will turn this into a sequence for us.
+    fun <T> List<T>.toInfiniteSequence(): Sequence<T> = sequence {
+        if(this@toInfiniteSequence.isEmpty()) {
+            return@sequence
+        }
+        while (true) {
+            // Co Routine i kotlin
+            // yielding an infinite sequence
+            yieldAll(this@toInfiniteSequence)
+        }
+    }
+
+    // In this solution, we use our infinite sequence to provide values that we map to the existing sum.
+    // This turns our sequence of inputs into a sequence of sums. Then we just stop the first time we’ve seen the sum before, by testing against our frequencies set.
+    fun solvePart2Improved(): Int {
+        val nrs = listActual.map { it.toInt() }
+
+        val frequencies = mutableSetOf(0)
+        var sum = 0
+        return nrs.toInfiniteSequence()
+            .map {
+                sum += it
+                sum
+            }
+            .first { !frequencies.add(it) }
+    }
+
+    @Test
+    fun testMyPartTwoHasSameValueAsImprovedVersion() {
+        assertEquals(partTwo(), solvePart2Improved())
+    }
 }
