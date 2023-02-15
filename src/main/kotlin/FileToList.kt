@@ -26,3 +26,4 @@ class FileToList() {
         return inputStream.bufferedReader().readLines()
     }
 }
+
