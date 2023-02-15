@@ -98,9 +98,11 @@ class AoCDay1Year2018Test {
     }
 
     // EFTER MHA Todd Ginsberg https://todd.ginsberg.com/post/advent-of-code/2018/day1/
-    // Hans part 1 var lika som min, då jag lärt mig av honom tidigare ang sum() och sumBy()
+    // Hans part 1 var lika som min, då jag lärt mig av honom tidigare ang sum() och sumOf()
+    // Jag tyckte hans lösning var extremt svår och jag förstår inte allt, min var enklare att förstå
+    // Men det är nog pga jag inte kan så mycket Kotlin Co Routines
 
-    // Pga Del 2 måste man Loopa igenom listan flera gånger, så har han använt något som heter "Infinite Sequence"
+    // Pga Del 2 måste man Loopa igenom listan flera gånger, så har han använt något som heter "Infinite Sequence" med Kotlin Co Routines
     // Han lägger till en Extension function på List möjliga functions
 
     // All this does is check that our list isn’t empty (in this case it’s not, but I wanted to be thorough), and if not, just keep yielding the entire list.
