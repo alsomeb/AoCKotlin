@@ -2,6 +2,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
+// HAR SATT @TEST PÅ VISSA FUNKTIONER FÖR ATT KÖRA DEM I DENNA CLASS
+// LÖSNINGAR LÄNGRE NER
+
 class AoCDay2Year2021Test {
 
 

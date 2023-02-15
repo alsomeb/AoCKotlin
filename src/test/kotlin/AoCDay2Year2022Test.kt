@@ -2,11 +2,10 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
+// HAR SATT @TEST PÅ VISSA FUNKTIONER FÖR ATT KÖRA DEM I DENNA CLASS
+// LÖSNINGAR LÄNGRE NER
 
 class AoCDay2Year2022Test {
-
-    // LÖSNINGAR (FUNKTIONER, LÄNGRE NER)
-
 
     private val reader = FileToList()
     // Den fattar inte med kortare path, måste vara exakt ?
