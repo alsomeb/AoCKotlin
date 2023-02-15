@@ -55,7 +55,7 @@ class AoCDay1Year2018Test {
         val nrs = nrsStringList.map { it.toInt() }
 
         tailrec fun doSum(sum: Int, counter: Int): Int {
-            return if (counter < 0) sum
+            return if (counter < 0) sum // Stop
             else doSum(sum + nrs[counter], counter - 1)
         }
 
