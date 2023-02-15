@@ -136,3 +136,4 @@ class AoCDay1Year2018Test {
         assertEquals(partTwo(), solvePart2Improved())
     }
 }
+
