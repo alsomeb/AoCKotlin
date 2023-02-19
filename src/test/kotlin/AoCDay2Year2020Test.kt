@@ -76,13 +76,13 @@ class AoCDay2Year2020Test {
         return amount in min..max
     }
 
-        /*
-    Each policy actually describes two positions in the password,
-    where 1 means the first character, 2 means the second character,
-    and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!)
-    Exactly one of these positions must contain the given letter.
-    Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
-     */
+            /*
+        Each policy actually describes two positions in the password,
+        where 1 means the first character, 2 means the second character,
+        and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!)
+        Exactly one of these positions must contain the given letter.
+        Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
+         */
     fun checkValidTestPartTwo(word: String): Boolean {
         val words = word.split(" ")
 
@@ -121,6 +121,8 @@ class AoCDay2Year2020Test {
 
         println(count)
     }
+
+    // EFTER, LÖSNING MHA TODO
 }
 
 
