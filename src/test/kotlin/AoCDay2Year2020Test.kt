@@ -5,7 +5,7 @@ class AoCDay2Year2020Test {
     /*
     Each line gives the password policy and then the password.
     The password policy indicates the lowest and highest number of times a given letter must appear for the password to be valid.
-    For example, 1-3 a means that the password must contain a at least 1 time and at most 3 times.
+    For example, 1-3 a means that the password must contain an at least 1 time and at most 3 times.
      */
 
     private val reader = FileToList()
@@ -27,6 +27,21 @@ class AoCDay2Year2020Test {
         val line2 = "1-3 b: cdefg"
         assertTrue { checkValidPartOne(line) }
         assertFalse { checkValidPartOne(line2) }
+    }
+
+
+    @Test
+    fun partTwoTest() {
+        var validPasswords = 0
+
+        for (line in listTest) {
+            if(checkValidTestPartTwo(line)) validPasswords++
+        }
+
+        assertEquals(1, validPasswords)
+        assertNotEquals(2, validPasswords)
+        assertNotEquals(3, validPasswords)
+
     }
 
 
@@ -61,6 +76,28 @@ class AoCDay2Year2020Test {
         return amount in min..max
     }
 
+        /*
+    Each policy actually describes two positions in the password,
+    where 1 means the first character, 2 means the second character,
+    and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!)
+    Exactly one of these positions must contain the given letter.
+    Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
+     */
+    fun checkValidTestPartTwo(word: String): Boolean {
+        val words = word.split(" ")
+
+        val pos1 = words[0].split("-")[0].toInt() - 1 // - 1 pga index
+        val pos2 = words[0].split("-")[1].toInt() - 1
+        val specLetter = words[1][0]
+        val password = words[2]
+
+
+        // Måste prova && först pga kan bli fel i algoritm annars!
+        // Annars så plussar den true pga OR kollar bara om 1 är, men båda får ej va samma enligt spec!
+        return if(password[pos1] == specLetter && password[pos2] == specLetter) false
+            else password[pos1] == specLetter || password[pos2] == specLetter // kommer bli true / false, expression
+    }
+
 
     @Test
     fun partOneActual(){
@@ -73,6 +110,17 @@ class AoCDay2Year2020Test {
         println(count)
     }
 
+
+    @Test
+    fun partTwoActual(){
+        var count = 0
+
+        for (line in listActual) {
+            if(checkValidTestPartTwo(line)) count++
+        }
+
+        println(count)
+    }
 }
 
 
