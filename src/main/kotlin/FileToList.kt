@@ -25,5 +25,8 @@ class FileToList() {
 
         return inputStream.bufferedReader().readLines()
     }
+
+    // FÖRBÄTTRAD Mha Jetbrains Youtube
+    fun getListFromFileImproved(path: String) = File(path).readLines()
 }
 

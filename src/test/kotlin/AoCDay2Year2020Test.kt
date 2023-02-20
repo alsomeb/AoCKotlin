@@ -8,9 +8,10 @@ class AoCDay2Year2020Test {
     For example, 1-3 a means that the password must contain an at least 1 time and at most 3 times.
      */
 
+    // Har gjort en förbättrad version som funkar utan absolute path för att läsa in input
     private val reader = FileToList()
-    private val listActual = reader.getListFromFile("C:\\Users\\46760\\Desktop\\Java\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2020Actual.txt")
-    private val listTest = reader.getListFromFile("C:\\Users\\46760\\Desktop\\Java\\AoCKotlin\\src\\main\\resources\\AoCDay2Year2020Test.txt")
+    private val listActual = reader.getListFromFileImproved("src/main/resources/AoCDay2Year2020Actual.txt")
+    private val listTest = reader.getListFromFileImproved("src/main/resources/AoCDay2Year2020Test.txt")
 
     // FÖRE, MIN EGNA LÖSNING
 
@@ -35,7 +36,7 @@ class AoCDay2Year2020Test {
         var validPasswords = 0
 
         for (line in listTest) {
-            if(checkValidTestPartTwo(line)) validPasswords++
+            if(checkValidPartTwo(line)) validPasswords++
         }
 
         assertEquals(1, validPasswords)
@@ -83,7 +84,7 @@ class AoCDay2Year2020Test {
         Exactly one of these positions must contain the given letter.
         Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
          */
-    fun checkValidTestPartTwo(word: String): Boolean {
+    fun checkValidPartTwo(word: String): Boolean {
         val words = word.split(" ")
 
         val pos1 = words[0].split("-")[0].toInt() - 1 // - 1 pga index
@@ -98,31 +99,83 @@ class AoCDay2Year2020Test {
             else password[pos1] == specLetter || password[pos2] == specLetter // kommer bli true / false, expression
     }
 
-
-    @Test
-    fun partOneActual(){
+    fun partOneActual(): Int{
         var count = 0
 
         for (line in listActual) {
             if(checkValidPartOne(line)) count++
         }
 
-        println(count)
+        return count
     }
 
 
-    @Test
-    fun partTwoActual(){
+    fun partTwoActual(): Int{
         var count = 0
 
         for (line in listActual) {
-            if(checkValidTestPartTwo(line)) count++
+            if(checkValidPartTwo(line)) count++
         }
 
-        println(count)
+        return count
     }
 
-    // EFTER, LÖSNING MHA TODO
+    // EFTER, LÖSNING MHA https://www.youtube.com/watch?v=MyvJ7G6aErQ&ab_channel=KotlinbyJetBrains
+    // Använder en data class för att store password + policy för varje line
+    data class PasswordWithPolicy(
+        val password: String,
+        val range: IntRange,
+        val letter: Char){ // constructor, equals, hashCode, toString
+
+        fun validatePartOne() = password.count{ it == letter } in range
+        // x in range
+        // is equivalent to
+        // range.first <= x && x <= range.last
+
+        // Någon måste va sant, inte båda, då blir de false "xor"
+        fun validatePartTwo() = (password[range.first -1] == letter) xor
+                (password[range.last - 1] == letter)
+
+        //An object declaration inside a class can be marked with the companion keyword
+        // Typ som en statisk metod i klasen
+        companion object {
+            private val regex = Regex("""(\d+)-(\d+) ([a-z]): ([a-z]+)""")
+            fun parseUsingRegex(line: String): PasswordWithPolicy? =
+                regex.matchEntire(line)?.destructured
+                    ?.let { (start, end, letter, password) -> PasswordWithPolicy(password, start.toInt()..end.toInt(), letter.single()) }
+            }
+        }
+
+
+    fun partOneImproved(): Int {
+        val passwords = listActual
+            .map (PasswordWithPolicy::parseUsingRegex)
+        val count = passwords.count { it!!.validatePartOne() }
+        println(count)
+        return count
+    }
+
+    // Används "xor" operator
+    // a true, b true, a xor b == false
+    // a true, b false a xor b == true
+    fun partTwoImproved(): Int {
+        val passwords = listActual
+            .map (PasswordWithPolicy::parseUsingRegex)
+        val count = passwords.count { it!!.validatePartTwo() }
+        println(count)
+        return count
+    }
+
+    @Test
+    fun testMyVersionIsSameAsImprovedPartOne() {
+        assertEquals(partOneActual(), partOneImproved())
+    }
+
+    @Test
+    fun testMyVersionIsSameAsImprovedPartTwo() {
+        assertEquals(partTwoActual(), partTwoImproved())
+    }
+
 }
 
 
