@@ -11,7 +11,7 @@ class AoCDay1Year2018Test {
     private val listTest2 = listOf("+1", "+1", "-2")
     private val listTest3 = listOf("-1", "-2", "-3")
     private val listTestDupesFreq = listOf("+1", "-2", "+3", "+1", "+1", "-2")
-    private val listActual = reader.getListFromFile("C:\\Users\\alex\\Desktop\\Nackademin\\Funktionell Programmering\\AoCKotlin\\src\\main\\resources\\AoCDay1Year2018Actual.txt")
+    private val listActual = reader.getListFromFileImproved("src/main/resources/AoCDay1Year2018Actual.txt")
 
 
 

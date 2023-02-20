@@ -7,8 +7,8 @@ class AoCDay1Year2019Test {
 
 
     private val reader = FileToList()
-    private val listTest = reader.getListFromFile("C:\\Users\\alex\\Desktop\\Nackademin\\Funktionell Programmering\\AoCKotlin\\src\\main\\resources\\AoCDay1Year2019Test.txt")
-    private val listActual = reader.getListFromFile("C:\\Users\\alex\\Desktop\\Nackademin\\Funktionell Programmering\\AoCKotlin\\src\\main\\resources\\AoCDay1Year2019Actual.txt")
+    private val listTest = reader.getListFromFileImproved("src/main/resources/AoCDay1Year2019Test.txt")
+    private val listActual = reader.getListFromFileImproved("src/main/resources/AoCDay1Year2019Actual.txt")
 
 
     @Test
