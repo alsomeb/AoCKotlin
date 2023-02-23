@@ -126,8 +126,7 @@ class AoCDay1Year2018Test {
         val frequencies = mutableSetOf(0)
         var sum = 0
         return nrs.toInfiniteSequence()
-            .map {
-                sum += it
+            .map { sum += it
                 sum
             }
             .first { !frequencies.add(it) }
